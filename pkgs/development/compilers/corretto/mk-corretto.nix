@@ -177,6 +177,16 @@ if stdenv.hostPlatform.isDarwin then
           --replace-warn "'SetFile'" "'true'" \
           --replace-warn "\"SetFile\"" "\"true\""
 
+        # Another Gradle 9 compatibility issue upstream hasn't hit yet: the
+        # `packageDebugSymbols`/`packageTestResults` Tar tasks use the
+        # `archiveName` setter, removed in Gradle 8. Nobody has exercised
+        # this file before (it's mac-only), unlike the Linux installers'
+        # build.gradle files, which the gradle8.patch above already fixes.
+        # Gradle evaluates every `task(type: ...)` block eagerly at
+        # configuration time, so this breaks even though we only ask for
+        # the `packaging` task.
+        sed -i 's/archiveName "/archiveFileName = "/' installers/mac/tar/build.gradle
+
         # Corretto's own configure flags (see installers/mac/tar/build.gradle)
         # don't give us a boot JDK or sysroot, unlike the OpenJDK flags we
         # reuse on Linux (there is no from-source OpenJDK-on-Darwin
