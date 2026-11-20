@@ -1,0 +1,58 @@
+diff --git a/make/autoconf/toolchain.m4 b/make/autoconf/toolchain.m4
+index a2b576a..df1f471 100644
+--- a/make/autoconf/toolchain.m4
++++ b/make/autoconf/toolchain.m4
+@@ -763,7 +763,8 @@ AC_DEFUN_ONCE([TOOLCHAIN_DETECT_TOOLCHAIN_EXTRA],
+       test_metal=`$METAL --version 2>&1`
+       if test $? -ne 0; then
+         AC_MSG_RESULT([no])
+-        AC_MSG_ERROR([XCode tool 'metal' neither found in path nor with xcrun])
++        AC_MSG_WARN([XCode tool 'metal' neither found in path nor with xcrun; disabling the Metal-accelerated Java2D pipeline])
++        METAL=
+       else
+         AC_MSG_RESULT([yes, will be using '$METAL'])
+       fi
+@@ -776,7 +777,8 @@ AC_DEFUN_ONCE([TOOLCHAIN_DETECT_TOOLCHAIN_EXTRA],
+       test_metallib=`$METALLIB --version 2>&1`
+       if test $? -ne 0; then
+         AC_MSG_RESULT([no])
+-        AC_MSG_ERROR([XCode tool 'metallib' neither found in path nor with xcrun])
++        AC_MSG_WARN([XCode tool 'metallib' neither found in path nor with xcrun; disabling the Metal-accelerated Java2D pipeline])
++        METALLIB=
+       else
+         AC_MSG_RESULT([yes, will be using '$METALLIB'])
+       fi
+diff --git a/make/modules/java.desktop/lib/Awt2dLibraries.gmk b/make/modules/java.desktop/lib/Awt2dLibraries.gmk
+index 3415754..10dfa8e 100644
+--- a/make/modules/java.desktop/lib/Awt2dLibraries.gmk
++++ b/make/modules/java.desktop/lib/Awt2dLibraries.gmk
+@@ -912,6 +912,11 @@ endif
+ ################################################################################
+ 
+ ifeq ($(call isTargetOs, macosx), true)
++  # Only compile the Metal shaders (and thus require Xcode's `metal`/
++  # `metallib`, which aren't available in a sandboxed Nix build) when they
++  # were actually found by configure. libosxui itself still builds without
++  # them; it just ships without Metal-accelerated Java2D rendering.
++  ifneq ($(METAL), )
+   SHADERS_SRC := $(TOPDIR)/src/java.desktop/macosx/native/libawt_lwawt/java2d/metal/shaders.metal
+   SHADERS_SUPPORT_DIR := $(SUPPORT_OUTPUTDIR)/native/java.desktop/libosxui
+   SHADERS_AIR := $(SHADERS_SUPPORT_DIR)/shaders.air
+@@ -936,6 +941,7 @@ ifeq ($(call isTargetOs, macosx), true)
+   ))
+ 
+   TARGETS += $(SHADERS_LIB)
++  endif
+ 
+   $(eval $(call SetupJdkLibrary, BUILD_LIBOSXUI, \
+       NAME := osxui, \
+@@ -960,7 +966,9 @@ ifeq ($(call isTargetOs, macosx), true)
+   ))
+ 
+   TARGETS += $(BUILD_LIBOSXUI)
++  ifneq ($(METAL), )
+   $(BUILD_LIBOSXUI): $(SHADERS_LIB)
++  endif
+ 
+   $(BUILD_LIBOSXUI): $(BUILD_LIBAWT)
+ 

@@ -54,6 +54,9 @@ in
         majorVersion:
         callPackage ../development/compilers/corretto/mk-corretto.nix {
           inherit majorVersion;
+          # Only present under `pkgs.darwin`, and only actually used (hence
+          # realized) when overriding with `withAppleMetal = true`.
+          xcode = pkgs.darwin.xcode;
         };
     in
     rec {
