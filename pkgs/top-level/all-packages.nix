@@ -2845,6 +2845,13 @@ with pkgs;
   corretto21 = javaPackages.compiler.corretto21;
   corretto25 = javaPackages.compiler.corretto25;
 
+  corretto-bin-25 = javaPackages.compiler.corretto-bin.jdk-25;
+  corretto-bin-21 = javaPackages.compiler.corretto-bin.jdk-21;
+  corretto-bin-17 = javaPackages.compiler.corretto-bin.jdk-17;
+  corretto-bin-11 = javaPackages.compiler.corretto-bin.jdk-11;
+
+  corretto-bin = corretto-bin-21;
+
   inherit (callPackage ../development/compilers/crystal { })
     crystal_1_14
     crystal_1_15

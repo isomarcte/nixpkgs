@@ -96,6 +96,18 @@ in
         in
         lib.mapAttrs (name: drv: mkLinuxDarwin drv semeruDarwin.${name}) semeruLinux
       );
+
+      corretto-bin = lib.recurseIntoAttrs (
+        let
+          correttoLinux = import ../development/compilers/corretto-bin/jdk-linux.nix {
+            inherit (pkgs) lib callPackage;
+          };
+          correttoDarwin = import ../development/compilers/corretto-bin/jdk-darwin.nix {
+            inherit (pkgs) lib callPackage;
+          };
+        in
+        lib.mapAttrs (name: drv: mkLinuxDarwin drv correttoDarwin.${name}) correttoLinux
+      );
     }
   );
 }

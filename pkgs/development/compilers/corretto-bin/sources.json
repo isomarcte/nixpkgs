@@ -1,0 +1,114 @@
+{
+  "linux": {
+    "jdk": {
+      "corretto11": {
+        "packageType": "jdk",
+        "aarch64": {
+          "url": "https://corretto.aws/downloads/resources/11.0.33.1.1/amazon-corretto-11.0.33.1.1-linux-aarch64.tar.gz",
+          "sha256": "sha256-t/Og6zoGIJTTdUzCbquWxWVkIXIRkHgrwxjPy+v9CQQ=",
+          "version": "11.0.33.1.1"
+        },
+        "x86_64": {
+          "url": "https://corretto.aws/downloads/resources/11.0.33.1.1/amazon-corretto-11.0.33.1.1-linux-x64.tar.gz",
+          "sha256": "sha256-S5el28P7Qxv2/tXwYCi81YMNnPwfMGVdh6vZ7XT8MBw=",
+          "version": "11.0.33.1.1"
+        }
+      },
+      "corretto17": {
+        "packageType": "jdk",
+        "aarch64": {
+          "url": "https://corretto.aws/downloads/resources/17.0.21.1.2/amazon-corretto-17.0.21.1.2-linux-aarch64.tar.gz",
+          "sha256": "sha256-9YvqHY/KV4gIGkOORpl68P5iSR7ym2uk2SWMv+jutbs=",
+          "version": "17.0.21.1.2"
+        },
+        "x86_64": {
+          "url": "https://corretto.aws/downloads/resources/17.0.21.1.2/amazon-corretto-17.0.21.1.2-linux-x64.tar.gz",
+          "sha256": "sha256-2KNQtZiPWOYYbdwdtYSvFw6dVoYoFtSleOlXDYUwfiw=",
+          "version": "17.0.21.1.2"
+        }
+      },
+      "corretto21": {
+        "packageType": "jdk",
+        "aarch64": {
+          "url": "https://corretto.aws/downloads/resources/21.0.13.1.2/amazon-corretto-21.0.13.1.2-linux-aarch64.tar.gz",
+          "sha256": "sha256-VXUcR8fjvjszr0PM3POm9IFNMIOQt0AEd1lNQhvRalM=",
+          "version": "21.0.13.1.2"
+        },
+        "x86_64": {
+          "url": "https://corretto.aws/downloads/resources/21.0.13.1.2/amazon-corretto-21.0.13.1.2-linux-x64.tar.gz",
+          "sha256": "sha256-KqoqmkMUOyD/CyjI0NonQHuX3ECxYNmi9gomllgV6Ug=",
+          "version": "21.0.13.1.2"
+        }
+      },
+      "corretto25": {
+        "packageType": "jdk",
+        "aarch64": {
+          "url": "https://corretto.aws/downloads/resources/25.0.5.1.2/amazon-corretto-25.0.5.1.2-linux-aarch64.tar.gz",
+          "sha256": "sha256-k3DT5bzw0WXmvkp4w/a1cWCvFtMDMxmvWDgAJR65HfI=",
+          "version": "25.0.5.1.2"
+        },
+        "x86_64": {
+          "url": "https://corretto.aws/downloads/resources/25.0.5.1.2/amazon-corretto-25.0.5.1.2-linux-x64.tar.gz",
+          "sha256": "sha256-jSvj8DXb2390deL3AJt9wgaDv8NRrUEGQhjI3llslkQ=",
+          "version": "25.0.5.1.2"
+        }
+      }
+    }
+  },
+  "mac": {
+    "jdk": {
+      "corretto11": {
+        "packageType": "jdk",
+        "aarch64": {
+          "url": "https://corretto.aws/downloads/resources/11.0.33.1.1/amazon-corretto-11.0.33.1.1-macosx-aarch64.tar.gz",
+          "sha256": "sha256-ebipX7HPZCSwBTx1vMJgsg5UvswbYGLjkYIV7deW23o=",
+          "version": "11.0.33.1.1"
+        },
+        "x86_64": {
+          "url": "https://corretto.aws/downloads/resources/11.0.33.1.1/amazon-corretto-11.0.33.1.1-macosx-x64.tar.gz",
+          "sha256": "sha256-BvJfOrX0s0QIQt7XRM4MRNEnGImfVWLTzTf3cqQuo1s=",
+          "version": "11.0.33.1.1"
+        }
+      },
+      "corretto17": {
+        "packageType": "jdk",
+        "aarch64": {
+          "url": "https://corretto.aws/downloads/resources/17.0.21.1.2/amazon-corretto-17.0.21.1.2-macosx-aarch64.tar.gz",
+          "sha256": "sha256-ER90OACVjksBP0alPH+G3UOggVoMqEB6Uu1pnS2FW2A=",
+          "version": "17.0.21.1.2"
+        },
+        "x86_64": {
+          "url": "https://corretto.aws/downloads/resources/17.0.21.1.2/amazon-corretto-17.0.21.1.2-macosx-x64.tar.gz",
+          "sha256": "sha256-AVUh9YjqOctZWgW4tArnFR7mto6laBPzARkk4uIc/LA=",
+          "version": "17.0.21.1.2"
+        }
+      },
+      "corretto21": {
+        "packageType": "jdk",
+        "aarch64": {
+          "url": "https://corretto.aws/downloads/resources/21.0.13.1.2/amazon-corretto-21.0.13.1.2-macosx-aarch64.tar.gz",
+          "sha256": "sha256-PlZsWydg3E8hmaxosJobfFOB8iijNvNRShqtTBE9R0o=",
+          "version": "21.0.13.1.2"
+        },
+        "x86_64": {
+          "url": "https://corretto.aws/downloads/resources/21.0.13.1.2/amazon-corretto-21.0.13.1.2-macosx-x64.tar.gz",
+          "sha256": "sha256-gwldneL+QSFR7t5J4Dc+61KQvAuCzGDO2zXh2i0KXsw=",
+          "version": "21.0.13.1.2"
+        }
+      },
+      "corretto25": {
+        "packageType": "jdk",
+        "aarch64": {
+          "url": "https://corretto.aws/downloads/resources/25.0.5.1.2/amazon-corretto-25.0.5.1.2-macosx-aarch64.tar.gz",
+          "sha256": "sha256-6B5xw3WuObhfUJ0x0X507cjk/XJ3w3XHtLd/4m9z8jM=",
+          "version": "25.0.5.1.2"
+        },
+        "x86_64": {
+          "url": "https://corretto.aws/downloads/resources/25.0.5.1.2/amazon-corretto-25.0.5.1.2-macosx-x64.tar.gz",
+          "sha256": "sha256-5RGVnMWkA9R6Emklv1w1movsc9f+SGpjO4PDNr+oUKU=",
+          "version": "25.0.5.1.2"
+        }
+      }
+    }
+  }
+}
